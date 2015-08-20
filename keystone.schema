@@ -1,0 +1,25 @@
+attributetype ( 1.3.6.1.4.1.29433.2.1 NAME 'enabled'
+        DESC 'Keystone enabled/disabled'
+        SUP name )
+
+# ksUser
+# The ksUser represents users in OpenStack Keystone Identity LDAP backend
+# It is a structural class and is derived from inetOrgPerson
+objectclass ( 1.3.6.1.4.1.29433.1.1
+    NAME 'ksUser'
+        DESC 'User class for OpenStack Keystone Identity backend'
+    SUP inetOrgPerson
+    STRUCTURAL
+        MAY ( enabled )
+        )
+
+# ksProject
+# The ksProject represents project/tenant in OpenStack Keystone Identity LDAP backend
+# It is a structural class and is derived from organizationalUnit
+objectclass ( 1.3.6.1.4.1.29433.1.2
+    NAME 'ksProject'
+        DESC 'Project class for OpenStack Keystone Identity backend'
+    SUP organizationalUnit
+    STRUCTURAL
+        MAY ( enabled $ cn)
+        )
